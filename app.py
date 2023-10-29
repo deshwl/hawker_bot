@@ -15,7 +15,7 @@ with st.sidebar:
   
                 ''')
     # Create a file uploader for files
-    uploaded_file = st.sidebar.file_uploader('Select a file for upload to knowledge base')
+    uploaded_file = st.sidebar.file_uploader('Select a file for upload to the Hawker knowledge base')
 
     # Add a submit button in the sidebar
     if uploaded_file is not None:
@@ -57,7 +57,7 @@ for message in st.session_state.messages: # Display the prior chat messages
 # If last message is not from assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("One minute, racking my brains..."):
             response = st.session_state.chat_engine.chat(prompt)
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
